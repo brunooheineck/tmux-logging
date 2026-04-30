@@ -14,7 +14,7 @@ main() {
 		local file
 		if [ -n "$custom_filename" ];then
 			local template
-			custom_filename=$(echo "${save_complete_history_full_filename}" | sed 's/#{pane_index}/'"$custom_filename"'/')
+			custom_filename=$(echo "${save_complete_history_full_filename_custom}" | sed 's/custom_name/'"$custom_filename"'/')
 			file=$(expand_tmux_format_path "${custom_filename}")
 		else
 			file=$(expand_tmux_format_path "${save_complete_history_full_filename}")
