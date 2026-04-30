@@ -20,6 +20,7 @@ clear_history_key=${clear_history_key:-$default_clear_history_key}
 
 # General options
 filename_suffix="#{session_name}-#{window_name}-#{pane_index}-%Y%m%dT%H%M%S.log"
+filename_suffix_custom="custom_name-%Y%m%dT%H%M%S.log"
 
 # Logging options
 default_logging_path="$HOME"
@@ -53,3 +54,4 @@ save_complete_history_filename=$(tmux show-option -gqv "@save-complete-history-f
 save_complete_history_filename=${save_complete_history_filename:-$default_save_complete_history_filename}
 
 save_complete_history_full_filename="${save_complete_history_path}/${save_complete_history_filename}"
+save_complete_history_full_filename_custom="${save_complete_history_path}/${filename_suffix_custom}"
