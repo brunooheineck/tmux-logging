@@ -33,10 +33,12 @@ main() {
 			line_start=$((selection_start_y - history_size))
 			line_end=$((selection_end_y - history_size))
 		else
-			default_line_start=$((cursor_y - scroll))
-			default_line_end="-"
-			tmux command-prompt -p "Line Start" -I "${default_line_start}" "set-option -gq @line_start '%1'"
-			tmux command-prompt -p "Line End" -I "${default_line_end}" "set-option -gq @line_end '%1'"
+			custom_line_start=$((cursor_y - scroll))
+			custom_line_end="-"
+			tmux command-prompt -p "Line Start" -I "${custom_line_start}" "set-option -gq @line_start '%1'"
+			tmux command-prompt -p "Line End" -I "${custom_line_end}" "set-option -gq @line_end '%1'"
+			line_start="$(get_tmux_option "@line_start")"
+			line_end="$(get_tmux_option "@line_end")"
 		fi
 
 		local history_limit
